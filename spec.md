@@ -7,7 +7,7 @@ endpoint: `/values/:key`\
 method: GET
 
 payload: `None`\
-response: `{"data": ":value"}`
+response: `{"value": ":value"}`
 
 response codes:
 - 200 (with response above)
@@ -19,8 +19,8 @@ response codes:
 endpoint: `/values/:key`\
 method: PUT
 
-payload `{"data": ":value"}`\
-response: `{"data": "added to store"}`
+payload `{"value": ":value"}`\
+response: `{"value": "added to store"}`
 
 response codes:
 - 200 (with above response)

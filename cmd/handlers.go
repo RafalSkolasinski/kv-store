@@ -45,7 +45,7 @@ func (app *application) getValueHandler(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, envelope{"error": "server error"})
 	}
 
-	return c.JSON(http.StatusOK, envelope{"data": value})
+	return c.JSON(http.StatusOK, envelope{"value": value})
 }
 
 func (app *application) putValueHandler(c echo.Context) error {
@@ -65,7 +65,7 @@ func (app *application) putValueHandler(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, envelope{"error": err})
 	}
 
-	return c.JSON(http.StatusOK, envelope{"data": "added to store"})
+	return c.JSON(http.StatusOK, envelope{"value": "added to store"})
 }
 
 func (app *application) deleteValueHandler(c echo.Context) error {
@@ -84,5 +84,5 @@ func (app *application) deleteValueHandler(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, envelope{"error": err})
 	}
 
-	return c.JSON(http.StatusOK, envelope{"data": "deleted from store"})
+	return c.JSON(http.StatusOK, envelope{"value": "deleted from store"})
 }

@@ -49,7 +49,7 @@ func TestGetValue(t *testing.T) {
 		var response map[string]string
 		err := json.Unmarshal(rec.Body.Bytes(), &response)
 		require.NoError(t, err)
-		assert.Equal(t, "test-value", response["data"])
+		assert.Equal(t, "test-value", response["value"])
 	}
 }
 
@@ -74,7 +74,7 @@ func TestPutValue(t *testing.T) {
 		err := json.Unmarshal(rec.Body.Bytes(), &response)
 		require.NoError(t, err)
 
-		assert.Equal(t, "added to store", response["data"])
+		assert.Equal(t, "added to store", response["value"])
 		assert.Equal(t, app.store.values["test-key"], "test-value")
 	}
 }
@@ -98,7 +98,7 @@ func TestDeleteValue(t *testing.T) {
 		var response map[string]string
 		err := json.Unmarshal(rec.Body.Bytes(), &response)
 		require.NoError(t, err)
-		assert.Equal(t, "deleted from store", response["data"])
+		assert.Equal(t, "deleted from store", response["value"])
 		assert.NotContains(t, app.store.values, "test-key")
 	}
 }
